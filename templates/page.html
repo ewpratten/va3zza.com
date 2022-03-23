@@ -91,7 +91,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], displayMat
     </div>
 
     {# Comments only on blog posts #}
-    {% if page.extra.is_rfc or page.description and page.date %}
+    {% if page.extra.is_rfc or page.extra.is_game or page.description and page.date %}
     <br>
     <hr>
     <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"

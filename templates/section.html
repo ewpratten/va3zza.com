@@ -73,7 +73,7 @@
   <a class="pn-previous" href="{{ paginator.previous }}">PREV</a>
   {% endif %}
   {% if paginator.previous and paginator.next %}
-    <span> • </span>
+  <span> • </span>
   {% endif %}
   {% if paginator.next %}
   <a class="pn-next" href="{{ paginator.next }}">NEXT</a>
@@ -93,4 +93,6 @@
   {% endfor %}
 </ul>
 {% endif %}
+
+
 {% endblock content %}

@@ -57,4 +57,18 @@ I am a first-year college student, studying Software Engineering at Sheridan Col
 </ul>
 </ul>
 
+## Notable Projects
 
+<!-- {{ long_news_item(title="Assigned autonomous system number 4242422811") }} -->
+
+{% long_project_card(title="[DATA::LOSS]", bg_color="#2e2846", text_color="#ffffff", cover_image="/images/games/data_loss/data_loss.png", url="https://ldjam.com/events/ludum-dare/49/dataloss") %}
+[data::loss] is a fast-paced side-scroller platforming game where you navigate a world full of graphical inconsistencies that have a habit of causing physical consequences.
+{% end %}
+
+{% long_project_card(title="Deep Breath", bg_color="#2a619f", text_color="#ffffff", cover_image="/images/games/deep_breath/deep_breath.png", url="https://ldjam.com/events/ludum-dare/48/deep-breath") %}
+Deep Breath is an exploration game where you explore an underwater cave in hopes of finding your lost transponder. Items and upgrades can be acquired along the way to assist your search.
+{% end %}
+
+{% long_project_card(title="Micromanaged Mike", bg_color="#26314f", text_color="#ffffff", cover_image="/images/games/micromanaged_mike/micromanaged_mike.png", url="https://ldjam.com/events/ludum-dare/46/micromanaged-mike") %}
+Truly put your multitasking skills to the test as you help Mike do daily tasks, hard parts is, Mike doesn’t have any autonomous body functions. You have to do everything for him, even making him blink.
+{% end %}

@@ -49,8 +49,8 @@ body {
 .container {
   max-width: 700px;
   margin: auto;
-  padding-left:10px;
-  padding-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .profile-card {
@@ -239,5 +239,58 @@ ul {
   & > .content {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+
+.long-project-card {
+  @media only screen and (min-width: 571px) {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom:15px;
+
+  background-size: cover;
+  backdrop-filter: blur(2px);
+
+  transition: box-shadow 0.1s ease 0s;
+
+  &:hover{
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 15px;
+  }
+
+  img {
+    width: 100%;
+    height:fit-content;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 15px;
+  }
+
+  .card-text {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+
+    h3{
+      font-size: 2em;
+      font-weight: bolder;
+      padding: 0;
+      margin: 0;
+    }
+    p{
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .card-image {
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 570px) {
+      margin-bottom:15px;
+    }
   }
 }
