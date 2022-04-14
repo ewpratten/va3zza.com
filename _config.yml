@@ -1,0 +1,21 @@
+title: Evan Pratten
+description: >- # this means to ignore newlines until "baseurl:"
+  Evan Pratten is a college student, amateur radio operator, software developer, and more. This is his website.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://va3zza.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+plugins:
+  - jekyll-feed
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
