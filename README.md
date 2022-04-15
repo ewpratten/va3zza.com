@@ -1,2 +1,6 @@
-# va3zza.com
-Source files for va3zza.com
+# va3zza.com web infrastructure
+
+## Server design
+
+- Proxy
+- Internal Server
