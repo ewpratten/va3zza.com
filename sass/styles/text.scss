@@ -1,12 +1,17 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 a {
-    color: unset;
-    text-decoration-color: $cc_purple;
-    transition: all 0.1s ease-in-out;
+  color: unset;
+  text-decoration-color: $cc_redder;
+  text-decoration-thickness: 2px;
+  transition: all 0.1s ease-in-out;
 
-    &:hover {
-        color: $cc_dark_purple;
-        text-decoration-color: $cc_light_blue;
-    }
+  &:hover {
+    color: $cc_dark_redder;
+    text-decoration-thickness: 4px;
+  }
+}
+
+.large-text {
+  font-size: 1.25rem;
 }

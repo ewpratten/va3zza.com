@@ -5,6 +5,7 @@
   border-top-right-radius: inherit;
   padding: 15px;
   background-color: $cc_light_green;
+  border-bottom: 6px solid $cc_blue_fade;
 
   @media screen and (min-width: 769px) {
     display: flex;

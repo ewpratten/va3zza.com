@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 body {
 }
 
@@ -7,5 +9,25 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0px 0px 10px #ccc;
-  min-height: 100vh;
+
+  .pc-sizer {
+    min-height: 100vh;
+    border-radius: inherit;
+  }
+
+  .site-footer {
+    text-align: center;
+  }
+
+  h1,
+  h2 {
+    font-weight: bold;
+    line-height: 1.75;
+    border-bottom: 2px solid $cc_blue_fade;
+    width: max-content;
+  }
+}
+
+.padded-content {
+  padding: 15px;
 }
