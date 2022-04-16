@@ -1,0 +1,31 @@
+<nav class="navbar sticky-top navbar-light bg-light navbar-expand-lg custom-navbar">
+    <div class="container">
+        {# Title #}
+        <a class="navbar-brand" href="/"><img src="{{config.extra.profile_photo}}" alt="Image of {{config.extra.author}}" loading="lazy"> <span>{{config.title}}</span></a>
+
+        {# Mobile toggle button #}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pageNavbarToggler"
+            aria-controls="pageNavbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {# Navbar links #}
+        <div class="collapse navbar-collapse" id="pageNavbarToggler">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/talks">Talks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

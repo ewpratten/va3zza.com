@@ -1,0 +1,12 @@
+@import './colors.scss';
+
+a {
+    color: unset;
+    text-decoration-color: $cc_purple;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+        color: $cc_dark_purple;
+        text-decoration-color: $cc_light_blue;
+    }
+}

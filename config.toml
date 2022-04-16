@@ -14,11 +14,16 @@ render_emoji = true
 external_links_target_blank = true
 
 [extra]
-name = "Evan Pratten"
-profession = "Software Developer"
-email = "mail@va3zza.com"
-twitter = "ewpratten"
-github = "ewpratten"
-qrz = "va3zza"
-linkedin = "ewpratten"
+# Site meta
+site_domain = "va3zza.com"
+
+# Me
+author = "Evan Pratten"
 profile_photo = "https://avatars.githubusercontent.com/u/21065412"
+email = "mail@va3zza.com"
+
+# Social media
+social_twitter = "ewpratten"
+social_github = "ewpratten"
+social_qrz = "va3zza"
+social_linkedin = "ewpratten"
