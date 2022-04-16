@@ -1,0 +1,22 @@
+@import "../colors.scss";
+
+.page-header {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 15px;
+  background: linear-gradient(to right, white, white, $cc_light_green);
+  border-bottom: 6px solid $cc_blue_fade;
+
+  h1,
+  h2 {
+    border: none !important;
+    line-height: 1 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    color: $cc_dark_blue;
+  }
+}
