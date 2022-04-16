@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+
+{# We are using some custom styles for the homepage, so they must be loaded here #}
+<link rel="stylesheet" href="/styles/by-section/home.css">
+{% endblock head %}
+
+
+{% block content %}
+
+<div class="home-greeting-header">
+    <div class="profile-photo">
+        <img src="{{config.extra.profile_photo}}" alt="Image of {{config.extra.author}}" loading="lazy">
+    </div>
+    <div class="greeting-content">
+        <h1>Well, that sucks.</h1>
+        <p>Looks like you found a broken link on my page.</p>
+        <p>If you feel like being kind, <a href="/contact">contact me</a> about it, and I'll try my best to fix the issue.</p>
+    </div>
+</div>
+
+<div class="padded-content large-text" style="text-align:center;">
+    <br>
+    <p>ERROR 404: Not Found</p>
+    <a href="/"><strong>Go to the homepage</strong></a>
+</div>
+
+{% endblock content %}
