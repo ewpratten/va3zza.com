@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{section.title}} | {{config.title}}{% endblock title %}
+
+{% block head %}
+{{ super() }}
+
+{# We are using some custom styles, so they must be loaded here #}
+<link rel="stylesheet" href="/styles/by-section/section.css">
+{% endblock head %}
+
+
+{% block content %}
+
+<div class="page-header">
+    <h1>{{section.title}}</h1>
+    {% if section.description %}
+    <h2>{{section.description | safe}}</h2>
+    {% endif %}
+</div>
+
+<div class="padded-content ">
+    {{section.content | safe}}
+</div>
+
+{% endblock content %}

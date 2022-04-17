@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{config.title}}{% endblock title %}
+
 {% block head %}
 {{ super() }}
 
@@ -15,11 +17,15 @@
     <img src="{{config.extra.profile_photo}}" alt="Image of {{config.extra.author}}" loading="lazy">
   </div>
   <div class="greeting-content">
-    {{section.content | safe}}
+    {{section.description | safe}}
   </div>
 </div>
 
-<div class="padded-content large-text">
+<div class="padded-content ">
+
+
+  {{section.content | safe}}
+
   {# Auto-generated blog post listing #}
   <h2>Latest blog posts</h2>
   <p>Here are a few of my most recent posts.</p>
@@ -31,7 +37,7 @@
   </ul>
 
   {# A list of recent events #}
-    {% include "content_blocks/recent_history.html" %}
+  {% include "content_blocks/recent_history.html" %}
 
 </div>
 
