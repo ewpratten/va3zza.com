@@ -28,6 +28,11 @@ The keyboards pictured above are both custom modifications of open-source keyboa
 
 - [My keyboard firmware](https:/github.com/ewpratten/qmk_firmware)
 
+Alongside hobbyist embedded microcontrollers, I also have extensive experience working with the [NI roboRIO](https://www.ni.com/en-ca/support/model.roborio.html) embedded robotics controller, a real-time industrial control hub built upon the [Z-7020 SoC](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) from XILINIX.
+
+<div style="text-align:center;">
+<img src="https://ni.scene7.com/is/image/ni/03251405?$ni-card-lg$" alt="Photo of the NI roboRIO" width="300">
+</div>
 ## The archives
 
 The following list contains additional completed projects that I no longer maintain and that did not make it into a section above.
