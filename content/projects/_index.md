@@ -17,6 +17,13 @@ In the past, I have written small kernels for both of these chips to back variou
 - [ATmega328P Kernel](https://github.com/Ewpratten/os328)
 - [ATmega32U4 Kernel](https://github.com/Ewpratten/os32u4)
 
+Upon the ATmega32u4, I have also built another one of my hobbies: custom keyboard building. This chip has the ability to present itself as an HID-compliant keyboard to any modern host, making it a perfect choice for developing keyboard firmware.
+
+<div style="text-align:center;">
+<img src="/images/projects/tg4x.jpg" alt="Photo of my 2nd custom keyboard" width="300">
+<img src="/images/projects/kbdv3.jpeg" alt="Photo of my 3rd custom keyboard" width="300">
+</div>
+
 ## The archives
 
 The following list contains additional completed projects that I no longer maintain and that did not make it into a section above.
