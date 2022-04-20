@@ -19,4 +19,4 @@ description: An archive of my previous public presentations
 
 ## 2017
 
-- *Western University*: **Star Treckies - Robot Showcase**
+- *Western University*: **Star Trekies - Robot Showcase**

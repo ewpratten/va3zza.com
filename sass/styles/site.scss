@@ -11,10 +11,6 @@ body {
   box-shadow: 0px 0px 10px #ccc;
   background-color: white;
 
-  & * {
-    max-width: 100%;
-  }
-
   .pc-sizer {
     min-height: 100vh;
     border-radius: inherit;
@@ -44,6 +40,10 @@ body {
 
 .padded-content {
   padding: 15px;
+
+  & * {
+    max-width: 100%;
+  }
 }
 
 table {
@@ -80,7 +80,7 @@ table tr:nth-child(2n) {
   box-shadow: 0px 0px 10px #ccc;
   transition: box-shadow 0.1s ease-in-out;
 
-  &:hover{
+  &:hover {
     box-shadow: 0px 0px 20px rgb(143, 143, 143);
   }
 
