@@ -4,6 +4,41 @@
 {% block head %}
 {{ super() }}
 
+{# Allow katex #}
+{% if page.extra.uses_katex %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [ ['$$','$$'], ['\[','\]'] ]}});
+</script>
+{% endif %}
+
+{# SEO stuff #}
+<meta property="og:title" content="{{page.title}} - {{config.title}}" />
+<meta property="og:type" content="article" />
+{% if page.description %}
+<meta property="og:description" content="{{page.description}}" />
+<meta property="description" content="{{page.description}}" />
+{% else %}
+<meta property="og:description" content="{{config.description}}" />
+<meta property="description" content="{{config.description}}" />
+{% endif %}
+<meta property="article:published_time" content="{{page.date}}T00:00:00+00:00" />
+
+{# Handle article listing #}
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{{page.title}}",
+      "datePublished": "{{page.date}}T00:00:00+00:00",
+      "author": [{
+          "@type": "Person",
+          "name": "{{config.title}}",
+          "url": "{{config.base_url}}"
+        }]
+    }
+</script>
+
 {# We are using some custom styles, so they must be loaded here #}
 <link rel="stylesheet" href="/styles/by-section/page.css">
 {% endblock head %}
@@ -20,6 +55,22 @@
 
 <div class="padded-content ">
     {{page.content | safe}}
+
+    {# Comments only on blog posts #}
+    {% if page.extra.is_rfc or page.description and page.date %}
+    <br>
+    <hr>
+    <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"
+        theme="github-light" crossorigin="anonymous" async>
+        </script>
+    {% endif %}
 </div>
+
+{% if page.extra.uses_twitter %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endif %}
+{% if page.extra.uses_graphviz %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+{% endif %}
 
 {% endblock content %}

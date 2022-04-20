@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-light bg-light navbar-expand-lg custom-navbar">
+<nav class="navbar sticky-top navbar-light bg-light navbar-expand-lg custom-navbar" id="navbar">
     <div class="container">
         {# Title #}
         <a class="navbar-brand" href="/"><img src="{{config.extra.profile_photo}}"
@@ -16,8 +16,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/projects">Projects</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarProjectsDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Projects
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarProjectsDropdown">
+                        <li><a class="dropdown-item" href="/projects/embedded">Embedded</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/talks">Talks</a>
@@ -30,3 +36,19 @@
 
     </div>
 </nav>
+
+{# Scrolling detection for shadows #}
+<script>
+    window.addEventListener("scroll", (event) => {
+        let navbar = document.getElementById("navbar");
+        if (this.scrollY > 0) {
+            if (!navbar.classList.contains("navbar-shadow")) {
+                navbar.classList.add("navbar-shadow");
+            }
+        } else {
+            if (navbar.classList.contains("navbar-shadow")) {
+                navbar.classList.remove("navbar-shadow");
+            }
+        }
+    });
+</script>
