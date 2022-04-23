@@ -10,6 +10,14 @@ description: >-
 ---
 
 <div style="width:100%;text-align:center !important;font-size:calc(1.375rem + 1.5vw);"><span><em>"Let's make something cool"</em></span></div>
+<hr><br>
 
+## What am I up to?
 
-<hr>
+As always, I'm working on multiple projects at the same time and have my head crammed full of technobabble. Currently, I am:
+
+- Working on the graphics pipeline powering children's TV productions at [Industrial Brothers](https://www.industrialbrothers.com/)
+- Administering experimental internet routing gear
+- Contributing to the Rust library and tooling ecosystem over on [GitHub](https://github.com/ewpratten)
+
+<br>

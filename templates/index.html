@@ -73,14 +73,24 @@
   <h2>Latest blog posts</h2>
   <p>Here are a few of my most recent posts.</p>
   <ul class="blog-post-preview-list">
-    <li>
-      <span>2022-04-01:</span>
-      <a href="/blog/asdf">This is a test item in a list</a>
+    {# We need to get the blog subsection and iterate it #}
+    {% set blog_section = get_section(path="blog/_index.md") %}
+    {% set index = 0 %}
+    {% for page in blog_section.pages %}
+    {% if not page.extra.hidden  %}
+    {% set_global index = index + 1 %}
+    {% if index > 5 %}
+    {# We only want to show the first 3 blog posts #}
+    {% break %}
+    {% endif %}
+    <li class="blog-post-li"><span style="color:{% if page.draft %}red{% else %}gray{% endif %};">{{page.date}}:</span>
+      <a href="{{page.path}}">{{page.title}}</a>
     </li>
+    {% endif %}
+    {% endfor %}
   </ul>
+  <a href="/blog"><button type="button" class="btn btn-outline-secondary">Read More</button></a>
 
-  {# A list of recent events #}
-  {% include "content_blocks/recent_history.html" %}
 
 </div>
 
