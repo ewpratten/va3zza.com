@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KFJ95RP');</script>
+    <!-- End Google Tag Manager -->
+
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    
+    <link rel="canonical" href="https:&#x2F;&#x2F;ewpratten.com&#x2F;blog&#x2F;frc-tech-reference&#x2F;" />
+    
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://ewpratten.com/ rss.xml">
+    <link rel="webmention" href="https://webmention.io/ewpratten.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/ewpratten.com/xmlrpc" />
+
+    <title>
+An overview of the tech on a complex FRC robot
+ | Evan Pratten</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Urbanist:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://maxst.icons8.com">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/project_mosaic.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+        integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:site" content="ewpratten.com" />
+    <meta name="og:image" content="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    <meta name="twitter:creator" content="@ewpratten">
+    <meta name="og:site_name" content="Evan Pratten (VA3ZZA)" />
+
+    
+
+
+
+
+
+
+<meta property="og:title" content="An overview of the tech on a complex FRC robot - Evan Pratten" />
+<meta property="og:type" content="article" />
+
+<meta property="og:description" content="Reference material for my friends" />
+<meta property="description" content="Reference material for my friends" />
+
+<meta property="article:published_time" content="2021-09-28T00:00:00" />
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+    
+    
+    
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "url": "https://ewpratten.com/blog/frc-tech-reference/",
+    "headline": "An overview of the tech on a complex FRC robot",
+    "dateCreated": "2021-09-28T00:00:00",
+    "datePublished": "2021-09-28T00:00:00",
+    "dateModified": "2021-09-28T00:00:00",
+    "inLanguage": "en-CA",
+    "isFamilyFriendly": "true",
+    "accountablePerson": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "creator": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://avatars.githubusercontent.com/u/21065412",
+            "width": "460",
+            "height": "460"
+        }
+    },
+    "mainEntityOfPage": "True",
+    "keywords": [],
+    "genre": [],
+    "articleSection": "Blog Post",
+    "__articleBody__": "{{content}}"
+}
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-card">
+            
+<div class="row">
+    <div class="headshot-container">
+        <img src="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" alt="Headshot" style="height:50px;width:auto;">
+    </div>
+    <div class="text-container">
+        <h1>Evan Pratten</h1>
+        <p>
+            Software Developer
+        </p>
+    </div>
+</div>
+
+        </div>
+        <div class="navigation-bar">
+            <hr>
+            <p>
+                <a href="/">Home</a> |
+                <a href="/blog">Blog</a> |
+                
+                
+                
+                <a href="/contact">Contact</a>
+                
+                
+                
+            </p>
+            <hr>
+        </div>
+        <div class="page-content">
+            
+<br><br>
+<article class="markdown-body">
+    
+    <h1 style="border:none;margin-bottom:0;padding-bottom:0">An overview of the tech on a complex FRC robot</h1>
+    <h3 style="margin-top:0;color:gray;padding-bottom:.3em;border-bottom:1px solid #eaecef;">
+        <em>
+            <span style="color:rgb(186, 186, 186)">/*</span>
+            Reference material for my friends
+            <span style="color:rgb(186, 186, 186)">*/</span>
+        </em>
+    </h3>
+    
+    <div style="text-align: justify;">
+        <p>This document is aimed at a small handful of people, but published publicly as reference material for anyone that needs it. All contents are highly specific to the FRC robotics electrical and programming environments.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#table-of-contents">Table of Contents</a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#types-of-devices">Types of devices</a>
+<ul>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#on-robot-computers">On-robot computers</a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#microcontrollers">Microcontrollers</a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#peripherals">Peripherals</a></li>
+</ul>
+</li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#the-list-of-blinky-things"><em>&quot;The list of blinky things&quot;</em></a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#openmesh-radios">OpenMesh Radios</a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#datasheets">Datasheets</a></li>
+<li><a href="https://ewpratten.com/blog/frc-tech-reference/#reference-material">Reference Material</a></li>
+</ul>
+<h2 id="types-of-devices">Types of devices</h2>
+<p>There are three types of devices found on an FRC robot:</p>
+<ul>
+<li>Computers</li>
+<li>Microcontrollers</li>
+<li>Peripherals</li>
+</ul>
+<h3 id="on-robot-computers">On-robot computers</h3>
+<p>The main computer on-robot is of course the roboRIO. The roboRIO is a standard <a rel="noopener" target="_blank" href="https://www.linuxfoundation.org/blog/intro-to-real-time-linux-for-embedded-developers/">Real-Time Linux</a> device running a custom Kernel, built on <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/BusyBox">Busybox</a>. The main system users are <code>admin</code> (the administrative user with full system write access), and <code>lvuser</code> (this user is the one that executes the robot program).</p>
+<p>If you SSH into the roboRIO (<code>ssh admin@10.TE.AM.2</code>), and navigate to <code>/home/lvuser/</code>, you will find the robot program (probably a <code>.jar</code>), along with the <code>deploy</code> folder, and a script that starts it all. You can stick anything in this script and it will run when the roboRIO boots.</p>
+<p>Other on-robot computers include the Limelight (which is just a <a rel="noopener" target="_blank" href="https://www.raspberrypi.org/products/compute-module-3-plus/">Raspberry Pi Compute Module v3</a>), the router (although you can't really run custom code on it), and any Raspberry Pis that might be used.</p>
+<h3 id="microcontrollers">Microcontrollers</h3>
+<p>Aside from the obvious, Arduinos, other on-board microcontrollers include any CTRE devices or &quot;smart&quot; REV devices. Each speed controller and control module is running some pre-compiled firmware on its own. Some of these devices (like the Talon SRX and the Spark Max) allow us to push custom code to them at runtime (like an off-board control loop) over the CAN bus. The NavX is also a microcontroller, communicating over Serial-over-MXP.</p>
+<h3 id="peripherals">Peripherals</h3>
+<p>Things like AD Gyroscopes, buttons, rangefinders, color sensors, etc. are all dumb peripherals. These behave exactly like any device you would connect to an Arduino.</p>
+<h2 id="the-list-of-blinky-things"><em>&quot;The list of blinky things&quot;</em></h2>
+<p>The <em>list of blinky things</em> is a list I came up with years ago for quickly answering the question of &quot;what does that blinking light mean?&quot;.</p>
+<ul>
+<li>CTR Electronics
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/downloads/pdf/PDP%20User&#x27;s%20Guide.pdf#%5B%7B%22num%22%3A60%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C69%2C696%2C0%5D">Power Distribution Panel</a> (2015-2022?)</li>
+<li><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/VRM%20User&#x27;s%20Guide.pdf#%5B%7B%22num%22%3A28%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C69%2C696%2C0%5D">Voltage Regulation Module</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/downloads/pdf/PCM%20User&#x27;s%20Guide.pdf#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C69%2C720%2C0%5D">Pneumatic Control Module</a> (multiple pages)</li>
+<li><a rel="noopener" target="_blank" href="http://www.ctr-electronics.com/Talon%20SRX%20User&#x27;s%20Guide.pdf#%5B%7B%22num%22%3A93%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C33%2C705%2C0%5D">Talon SRX</a></li>
+<li><a rel="noopener" target="_blank" href="http://www.ctr-electronics.com/downloads/pdf/Victor%20SPX%20User&#x27;s%20Guide.pdf#page=11&amp;zoom=auto,-207,705">Victor SPX</a></li>
+</ul>
+</li>
+<li>Rev Robotics
+<ul>
+<li><a rel="noopener" target="_blank" href="https://docs.revrobotics.com/sparkmax/status-led">Spark Max</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.revrobotics.com/content/docs/REV-11-1200-UM.pdf#page=14&amp;zoom=auto,2,756">Spark</a></li>
+</ul>
+</li>
+<li>National Instruments
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.ni.com/pdf/manuals/374474a.pdf#G45855">roboRIO</a> (multiple pages)</li>
+</ul>
+</li>
+</ul>
+<h2 id="openmesh-radios">OpenMesh Radios</h2>
+<p>The current fleet of robots are using OpenMesh radios for 2.4GHz and 5GHz communication. </p>
+<p>These radios come in two models (found on the bottom of the radio). First is the <code>OM5P-AN</code> and the second is the <code>OM5P-AC</code>. The <code>AC</code> variant is the newer (and faster) model. It is also more locked down. You can flash OpenWRT to the <code>AN</code> model and use it as a practice field router (which I have done before).</p>
+<p>These are consumer routers designed for home use! They are <strong>not</strong> in any way good at robotics applications. You will want to follow <a rel="noopener" target="_blank" href="https://docs.wpilib.org/en/stable/docs/networking/networking-introduction/om5p-ac-radio-modification.html">this guide</a> to protect your routers before putting them on the field.</p>
+<p>For information on flashing routers, see <a rel="noopener" target="_blank" href="https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-3/radio-programming.html#programming-your-radio">here</a>. Routers from Israeli teams will be incompatible with any north american tech, so they need to be reflashed to match our regulations.</p>
+<h2 id="datasheets">Datasheets</h2>
+<table><thead><tr><th>Manufacturer</th><th>Model</th><th>Datasheet</th></tr></thead><tbody>
+<tr><td>OpenMesh</td><td>OM5P-AC</td><td><a rel="noopener" target="_blank" href="https://www.openmesh.com/resource-downloads/OM-Series-Datasheet.pdf">PDF</a></td></tr>
+<tr><td>CTR Electronics</td><td>Power Distribution Panel</td><td><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/downloads/pdf/PDP%20User&#x27;s%20Guide.pdf">PDF</a></td></tr>
+<tr><td>CTR Electronics</td><td>Voltage Regulation Module</td><td><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/VRM%20User&#x27;s%20Guide.pdf">PDF</a></td></tr>
+<tr><td>CTR Electronics</td><td>Pneumatic Control Module</td><td><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/downloads/pdf/PCM%20User&#x27;s%20Guide.pdf">PDF</a></td></tr>
+<tr><td>CTR Electronics</td><td>Talon SRX</td><td><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/Talon%20SRX%20User&#x27;s%20Guide.pdf">PDF</a></td></tr>
+<tr><td>CTR Electronics</td><td>Victor SPX</td><td><a rel="noopener" target="_blank" href="https://www.ctr-electronics.com/downloads/pdf/Victor%20SPX%20User&#x27;s%20Guide.pdf">PDF</a></td></tr>
+<tr><td>Rev Robotics</td><td>Spark Max</td><td><a rel="noopener" target="_blank" href="https://docs.revrobotics.com/sparkmax/status-led">HTML</a></td></tr>
+<tr><td>Rev Robotics</td><td>Spark</td><td><a rel="noopener" target="_blank" href="https://www.revrobotics.com/content/docs/REV-11-1200-UM.pdf">PDF</a></td></tr>
+<tr><td>National Instruments</td><td>roboRIO</td><td><a rel="noopener" target="_blank" href="https://www.ni.com/pdf/manuals/374474a.pdf">PDF</a></td></tr>
+<tr><td>Kauai Labs</td><td>NavX-MXP</td><td><a rel="noopener" target="_blank" href="https://pdocs.kauailabs.com/navx-mxp/wp-content/uploads/2020/09/navx2-mxp_robotics_navigation_sensor_user_guide-8.pdf">PDF</a></td></tr>
+</tbody></table>
+<p>More devices can be found in <a rel="noopener" target="_blank" href="https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-hardware.html">this list</a>.</p>
+<h2 id="reference-material">Reference Material</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/CAN_bus">The CAN Bus and Protocol</a></li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">The SPI Communication Standard</a> used by many peripherals</li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation</a> (used by some speed controllers and encoders)</li>
+<li><a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Rotary_encoder">Rotary Encoders</a> (keep in mind, we almost exclusively use <strong>Hall Effect + Quadrature + Incremental</strong> encoders)</li>
+</ul>
+
+    </div>
+
+    
+    
+    <br>
+    <hr>
+    <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"
+        theme="github-light" crossorigin="anonymous" async>
+        </script>
+    
+
+</article>
+
+
+
+
+        </div>
+
+        <div id="footer">
+            <p class="gray">-- EOF --</p>
+            <p>
+                <em>
+                    <a href="https://github.com/ewpratten/va3zza.com"><i class="lab la-github"></i></a>
+                    <a href="https://status.ewpratten.com"><i class="las la-info-circle"></i></a>
+                    <a href="/rss.xml"><i class="las la-rss"></i></a><br>
+
+                    Thanks for reading :)<br>
+                    Site design & content by: <a href="/info">Evan Pratten</a><br>
+                    Consider <a href="/donate" target="_blank">supporting my work</a> if you like what you see<br>
+
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5912H4H03P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5912H4H03P');
+    </script>
+
+    <script>
+        if (window.performance && performance.getEntriesByType) { // avoid error in Safari 10, IE9- and other old browsers
+            let navTiming = performance.getEntriesByType('navigation')
+            if (navTiming.length > 0) { // still not supported as of Safari 14...
+                let serverTiming = navTiming[0].serverTiming
+                if (serverTiming && serverTiming.length > 0) {
+                    for (let i = 0; i < serverTiming.length; i++) {
+                        if (serverTiming[i].name == 'source') {
+                            if (serverTiming[i].description == 'net44') {
+                                document.getElementById('ampr-notice').style.display = 'block';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <script>
+        if (window.location.hostname == 'retrylife.ca') {
+            window.location.href = window.location.href.replace('retrylife.ca', 'ewpratten.com');
+        }
+    </script>
+
+    
+    <a rel="me" href="https://social.ewpratten.com/@evan" style="display:none;"></a>
+</body>
+
+</html>

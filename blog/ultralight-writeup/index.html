@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KFJ95RP');</script>
+    <!-- End Google Tag Manager -->
+
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    
+    <link rel="canonical" href="https:&#x2F;&#x2F;ewpratten.com&#x2F;blog&#x2F;ultralight-writeup&#x2F;" />
+    
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://ewpratten.com/ rss.xml">
+    <link rel="webmention" href="https://webmention.io/ewpratten.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/ewpratten.com/xmlrpc" />
+
+    <title>
+Building a mini maven server
+ | Evan Pratten</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Urbanist:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://maxst.icons8.com">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/project_mosaic.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+        integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:site" content="ewpratten.com" />
+    <meta name="og:image" content="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    <meta name="twitter:creator" content="@ewpratten">
+    <meta name="og:site_name" content="Evan Pratten (VA3ZZA)" />
+
+    
+
+
+
+
+
+
+<meta property="og:title" content="Building a mini maven server - Evan Pratten" />
+<meta property="og:type" content="article" />
+
+<meta property="og:description" content="Project overview: The Ultralight maven server" />
+<meta property="description" content="Project overview: The Ultralight maven server" />
+
+<meta property="article:published_time" content="2020-09-17T00:00:00" />
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+    
+    
+    
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "url": "https://ewpratten.com/blog/ultralight-writeup/",
+    "headline": "Building a mini maven server",
+    "dateCreated": "2020-09-17T00:00:00",
+    "datePublished": "2020-09-17T00:00:00",
+    "dateModified": "2020-09-17T00:00:00",
+    "inLanguage": "en-CA",
+    "isFamilyFriendly": "true",
+    "accountablePerson": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "creator": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://avatars.githubusercontent.com/u/21065412",
+            "width": "460",
+            "height": "460"
+        }
+    },
+    "mainEntityOfPage": "True",
+    "keywords": [],
+    "genre": [],
+    "articleSection": "Blog Post",
+    "__articleBody__": "{{content}}"
+}
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-card">
+            
+<div class="row">
+    <div class="headshot-container">
+        <img src="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" alt="Headshot" style="height:50px;width:auto;">
+    </div>
+    <div class="text-container">
+        <h1>Evan Pratten</h1>
+        <p>
+            Software Developer
+        </p>
+    </div>
+</div>
+
+        </div>
+        <div class="navigation-bar">
+            <hr>
+            <p>
+                <a href="/">Home</a> |
+                <a href="/blog">Blog</a> |
+                
+                
+                
+                <a href="/contact">Contact</a>
+                
+                
+                
+            </p>
+            <hr>
+        </div>
+        <div class="page-content">
+            
+<br><br>
+<article class="markdown-body">
+    
+    <h1 style="border:none;margin-bottom:0;padding-bottom:0">Building a mini maven server</h1>
+    <h3 style="margin-top:0;color:gray;padding-bottom:.3em;border-bottom:1px solid #eaecef;">
+        <em>
+            <span style="color:rgb(186, 186, 186)">/*</span>
+            Project overview: The Ultralight maven server
+            <span style="color:rgb(186, 186, 186)">*/</span>
+        </em>
+    </h3>
+    
+    <div style="text-align: justify;">
+        <p>I have been looking around for a small, and easy-to-use <a rel="noopener" target="_blank" href="https://maven.apache.org/">maven</a> server to host my personal Java libraries for some time now. I origionally went with <a rel="noopener" target="_blank" href="https://jitpack.io/">Jitpack.io</a>, but didn't like the fact I jitpack overwrites artifact <code>groupID</code> fields. This means that instead of specifying a package via something like <code>ca.retrylife:librandom:1.0.0</code>, a user would have to write <code>com.github.ewpratten:librandom:1.0.0</code>. While this is not a huge deal, I prefer to use a <code>gorupID</code> under my own domain for branding reasons. Along with this issue, I just didn't have enough control over my artifacts with Jitpack. </p>
+<p>From Jitpack, I moved on to hosting a maven server in a docker container on one of my webservers. This worked fine until my server crashed from a configuration issue. I decided that self-hosting was not the way to go until I have set up a more stable storage infrastructure.</p>
+<p>After my attempt at self-hosting, I moved to (and quickly away from) <a rel="noopener" target="_blank" href="https://github.com/features/packages">GitHub Packages</a>. GitHub Packages is a great service with a huge drawback. Anyone wanting to use one of my libraries must authenticate with the github maven servers. Along with that, the buildsystem configuration to actually load a GitHub Packages artifact is currently a bit of a mess. While GitHub staff have addressed this issue, and a way to load packages without authentication is roumered to be coming to the platform sometime soon, I don't want to wait. After this adventure, I got curious. </p>
+<div class="center" markdown="1">
+<blockquote>
+<p><em>How hard is it to write my own maven server?</em> </p>
+</blockquote>
+</div>
+<p>Turns out, not very hard at all.</p>
+<p>Maven servers are basically glorified static site generators that serve specific files in specific places. On top of this, the entire protocol is XML-based, which makes building one super easy. When a buildsystem like Maven or Gradle wants to fetch an artifact from a maven server, it first makes a request to <code>http(s)://&lt;baseurl&gt;/&lt;groupID&gt;/&lt;artifactID&gt;/&lt;version&gt;/&lt;artifactID&gt;-&lt;version&gt;.pom</code> to find out any needed data about the requested artifact. An example of this file's contents could be:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span style="color:#65737e;">&lt;!-- Response for http://maven.example.com/ca/retrylife/librandom/1.0.0/librandom-1.0.0.pom --&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">project 
+</span><span>    </span><span style="color:#d08770;">xsi:schemaLocation</span><span>=&quot;</span><span style="color:#a3be8c;">http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd</span><span>&quot; 
+</span><span>    </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://maven.apache.org/POM/4.0.0</span><span>&quot; 
+</span><span>    </span><span style="color:#d08770;">xmlns:xsi</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.w3.org/2001/XMLSchema-instance</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">modelVersion</span><span>&gt;4.0.0&lt;/</span><span style="color:#bf616a;">modelVersion</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">groupId</span><span>&gt;ca.retrylife&lt;/</span><span style="color:#bf616a;">groupId</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">artifactId</span><span>&gt;librandom&lt;/</span><span style="color:#bf616a;">artifactId</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">version</span><span>&gt;1.0.0&lt;/</span><span style="color:#bf616a;">version</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">project</span><span>&gt;
+</span></code></pre>
+<p>I don't exactly know the reason this file exists in most cases, since all the data returned is data the client already knows. Judging by the <a rel="noopener" target="_blank" href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">Project Object Model</a> specifications, some servers might use this file to return additional metadata about the artifact, but none of this data is required for my minimal working example.</p>
+<p>Along with this request, another is sometimes made to <code>http(s)://&lt;baseurl&gt;/&lt;groupID&gt;/&lt;artifactID&gt;/maven-metadata.xml</code>, which is an XML file containing a list of all artifact versions stored on the server. From my testing with Gradle, a call to this endpoint is only made if there is a wildcard in the asset name in a user's build configuration. An example of this would be <code>ca.retrylife:librandom:1.+</code>. An exampe of this file's contents could be:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">metadata </span><span style="color:#d08770;">modelVersion</span><span>=&quot;</span><span style="color:#a3be8c;">1.1.0</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">groupId</span><span>&gt;ca.retrylife&lt;/</span><span style="color:#bf616a;">groupId</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">artifactId</span><span>&gt;librandom&lt;/</span><span style="color:#bf616a;">artifactId</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">version</span><span>&gt;1.0.1&lt;/</span><span style="color:#bf616a;">version</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">versioning</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">latest</span><span>&gt;1.0.1&lt;/</span><span style="color:#bf616a;">latest</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">release</span><span>&gt;1.0.1&lt;/</span><span style="color:#bf616a;">release</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">versions</span><span>&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">version</span><span>&gt;1.0.1&lt;/</span><span style="color:#bf616a;">version</span><span>&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">version</span><span>&gt;1.0.0&lt;/</span><span style="color:#bf616a;">version</span><span>&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">versions</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">lastUpdated</span><span>&gt;1599079384&lt;/</span><span style="color:#bf616a;">lastUpdated</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">versioning</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">metadata</span><span>&gt;
+</span></code></pre>
+<p>Finally, a request is made to <code>http(s)://&lt;baseurl&gt;/&lt;groupID&gt;/&lt;artifactID&gt;/&lt;version&gt;/&lt;artifactID&gt;-&lt;version&gt;.jar</code>, which should just return the correct JAR file for the library. Pretty simple.</p>
+<h2 id="the-magic-behind-ultralight">The magic behind Ultralight</h2>
+<p><a rel="noopener" target="_blank" href="https://ultralight.retrylife.ca">Ultralight Maven</a> is a small serverless maven server I built for myself. The Ultralight backend app listens for each of these three requests, and will handle each of the following cases. I use a YAML file to tell the backend what artifact names I want it to &quot;serve&quot;, and their GitHub repository names.</p>
+<p><em><strong>Case 1.</strong></em> The client has asked for a Project Object Model for an artifact. In this case, the backend will make sure the requested artifact name is listed in its configuration file, then simply parse all of the needed data out of the request URL, and send it right back to the client.</p>
+<p><em><strong>Case 2.</strong></em> The client has asked for a <code>maven-metadata.xml</code> file. In this case, the backend will first make sure the artifact exists, then make a request out to the <a rel="noopener" target="_blank" href="https://docs.github.com/en/rest">GitHub REST API</a>, and ask for a list of all tag names in the artifact's repository. For every tag that contains an asset with the same name as the artifact, the tag's version number will be added to the list of valid versions in the response.</p>
+<p><em><strong>Case 3.</strong></em> The client has asked for an artifact's JAR file. In this case, the backend will first make sure the artifact exists, then make a request out to the GitHub API, and ask for the correct asset URL on GitHub's servers. With this url, Ultralight just crafts an <a rel="noopener" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302">HTTP 302</a> response. This makes the client actually request from GitHub itself instead of the Ultralight server, thus Ultralight never needs to store any artifacts.</p>
+<p>Both to make the experience faster, and to get around GitHub's rate limiting on the tags API, Ultralight sends the client <a rel="noopener" target="_blank" href="https://vercel.com/docs/edge-network/caching#stale-while-revalidate"><code>stale-while-revalidate</code></a> cache control headers. This forces the Vercel server that hosts Ultralight to only update its cache once per minute (slightly slower than the GitHub rate limit 😉)</p>
+<p>For instructions on how to set up your own maven server using Ultralight, see the <a rel="noopener" target="_blank" href="https://github.com/Ewpratten/ultralight#ultralight">README</a> on GitHub.</p>
+
+    </div>
+
+    
+    
+    <br>
+    <hr>
+    <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"
+        theme="github-light" crossorigin="anonymous" async>
+        </script>
+    
+
+</article>
+
+
+
+
+        </div>
+
+        <div id="footer">
+            <p class="gray">-- EOF --</p>
+            <p>
+                <em>
+                    <a href="https://github.com/ewpratten/va3zza.com"><i class="lab la-github"></i></a>
+                    <a href="https://status.ewpratten.com"><i class="las la-info-circle"></i></a>
+                    <a href="/rss.xml"><i class="las la-rss"></i></a><br>
+
+                    Thanks for reading :)<br>
+                    Site design & content by: <a href="/info">Evan Pratten</a><br>
+                    Consider <a href="/donate" target="_blank">supporting my work</a> if you like what you see<br>
+
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5912H4H03P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5912H4H03P');
+    </script>
+
+    <script>
+        if (window.performance && performance.getEntriesByType) { // avoid error in Safari 10, IE9- and other old browsers
+            let navTiming = performance.getEntriesByType('navigation')
+            if (navTiming.length > 0) { // still not supported as of Safari 14...
+                let serverTiming = navTiming[0].serverTiming
+                if (serverTiming && serverTiming.length > 0) {
+                    for (let i = 0; i < serverTiming.length; i++) {
+                        if (serverTiming[i].name == 'source') {
+                            if (serverTiming[i].description == 'net44') {
+                                document.getElementById('ampr-notice').style.display = 'block';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <script>
+        if (window.location.hostname == 'retrylife.ca') {
+            window.location.href = window.location.href.replace('retrylife.ca', 'ewpratten.com');
+        }
+    </script>
+
+    
+    <a rel="me" href="https://social.ewpratten.com/@evan" style="display:none;"></a>
+</body>
+
+</html>

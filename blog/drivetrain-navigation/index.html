@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KFJ95RP');</script>
+    <!-- End Google Tag Manager -->
+
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    
+    <link rel="canonical" href="https:&#x2F;&#x2F;ewpratten.com&#x2F;blog&#x2F;drivetrain-navigation&#x2F;" />
+    
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://ewpratten.com/ rss.xml">
+    <link rel="webmention" href="https://webmention.io/ewpratten.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/ewpratten.com/xmlrpc" />
+
+    <title>
+Notes from FRC: Autonomous point-to-point navigation
+ | Evan Pratten</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Urbanist:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://maxst.icons8.com">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/project_mosaic.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+        integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:site" content="ewpratten.com" />
+    <meta name="og:image" content="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    <meta name="twitter:creator" content="@ewpratten">
+    <meta name="og:site_name" content="Evan Pratten (VA3ZZA)" />
+
+    
+
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [ ['$$','$$'], ['\[','\]'] ]}});
+</script>
+
+
+<meta property="og:title" content="Notes from FRC: Autonomous point-to-point navigation - Evan Pratten" />
+<meta property="og:type" content="article" />
+
+<meta property="og:description" content="The tale of some very curvy math" />
+<meta property="description" content="The tale of some very curvy math" />
+
+<meta property="article:published_time" content="2020-08-13T00:00:00" />
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+    
+    
+    
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "url": "https://ewpratten.com/blog/drivetrain-navigation/",
+    "headline": "Notes from FRC: Autonomous point-to-point navigation",
+    "dateCreated": "2020-08-13T00:00:00",
+    "datePublished": "2020-08-13T00:00:00",
+    "dateModified": "2020-08-13T00:00:00",
+    "inLanguage": "en-CA",
+    "isFamilyFriendly": "true",
+    "accountablePerson": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "creator": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://avatars.githubusercontent.com/u/21065412",
+            "width": "460",
+            "height": "460"
+        }
+    },
+    "mainEntityOfPage": "True",
+    "keywords": [],
+    "genre": [],
+    "articleSection": "Blog Post",
+    "__articleBody__": "{{content}}"
+}
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-card">
+            
+<div class="row">
+    <div class="headshot-container">
+        <img src="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" alt="Headshot" style="height:50px;width:auto;">
+    </div>
+    <div class="text-container">
+        <h1>Evan Pratten</h1>
+        <p>
+            Software Developer
+        </p>
+    </div>
+</div>
+
+        </div>
+        <div class="navigation-bar">
+            <hr>
+            <p>
+                <a href="/">Home</a> |
+                <a href="/blog">Blog</a> |
+                
+                
+                
+                <a href="/contact">Contact</a>
+                
+                
+                
+            </p>
+            <hr>
+        </div>
+        <div class="page-content">
+            
+<br><br>
+<article class="markdown-body">
+    
+    <h1 style="border:none;margin-bottom:0;padding-bottom:0">Notes from FRC: Autonomous point-to-point navigation</h1>
+    <h3 style="margin-top:0;color:gray;padding-bottom:.3em;border-bottom:1px solid #eaecef;">
+        <em>
+            <span style="color:rgb(186, 186, 186)">/*</span>
+            The tale of some very curvy math
+            <span style="color:rgb(186, 186, 186)">*/</span>
+        </em>
+    </h3>
+    
+    <div style="text-align: justify;">
+        <p>This post is a continuation on my &quot;Notes from FRC&quot; series. If you haven't already, I recommend reading my post on <a href="/blog/2020/08/03/joystick-to-voltage">Converting joystick data to tank-drive outputs</a>. Some concepts in this post were introduced there. Like last time, to see the production code behind this post, check <a rel="noopener" target="_blank" href="https://github.com/frc5024/lib5k/blob/ab90994b2a0c769abfdde9a834133725c3ce3a38/common_drive/src/main/java/io/github/frc5024/common_drive/DriveTrainBase.java">here</a> and <a rel="noopener" target="_blank" href="https://github.com/frc5024/lib5k/tree/master/purepursuit/src/main/java/io/github/frc5024/purepursuit/pathgen">here</a>.</p>
+<p>At <em>Raider Robotics</em>, most of my work has been spent on these three subjects:</p>
+<ul>
+<li>Productivity infrastructure</li>
+<li>Developing our low-level library</li>
+<li>Writing the software that powers our past three robots' <em>DriveTrain</em>s</li>
+</ul>
+<p>When I joined the team, we had just started to design effective autonomous locomotion code. Although functional, our ability to manuever robots around the FRC field autonomously was very limited, and with very low precision. It has since been my goal to build a powerful software framework for precisely estimating our robot's real-world position at all times, and for giving anyone the tools to easily call a method, and have the robot to drive from point <em>A</em> to <em>B</em>. My goal with this post is to outline how this system actually works. But first, I need to explain some core concepts:</p>
+<p><strong>Poses</strong>. At Raider Robotics, we use the following vector components to denote a robot's position and rotation on a 2D plane (the floor). We call this magic vector a <em>pose</em> :</p>
+<p>$$
+pose = \begin{bmatrix} x  \  y  \  \theta \end{bmatrix}
+$$</p>
+<p>With a robot sitting at $\big[\begin{smallmatrix}0 \ 0 \ 0\end{smallmatrix}\big]$, it would be facing positive in the $x$ axis.</p>
+<p><strong>Localization</strong>. When navigating the real world, the first challenge is: knowing where the robot is. At Raider Robotics, we use an <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Kalman_filter#Unscented_Kalman_filter">Unscented Kalman Filter</a> (UKF) that fuses high-accuracy encoder and gyroscope data with medium-accuracy VI-SLAM data fed off our robot's computer vision system. Our encoders are attached to the robot's tank track motor output shafts, counting the distance traveled by each track. Although this sounds extremely complicated, this algorithm can be boiled down to a simple (and low-accuracy) equation that originated from marine navigation called <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Dead_reckoning">Dead Reckoning</a>:</p>
+<p>$$
+\Delta P = \begin{bmatrix}(\Delta L - \Delta R) \cdot \sin(\theta\cdot\frac{\pi}{180})  \  (\Delta L - \Delta R) \cdot \cos(\theta\cdot\frac{\pi}{180})  \  \Delta \theta \end{bmatrix}
+$$</p>
+<p>The result of this equation, $\Delta P$, is then accumulated over time, into the robot's <em>pose</em>. $L$ and $R$ are the distance readings from the <em>left</em> and <em>right</em> tank tracks.</p>
+<p>With an understanding of the core concepts, lets say we have a tank-drive robot sitting at pose $A$, and we want to get it to pose $B$. </p>
+<p>$$
+A = \begin{bmatrix}0 \ 0 \ 0\end{bmatrix}
+$$</p>
+<p>$$
+B = \begin{bmatrix}0 \ 1 \ 90\end{bmatrix}
+$$</p>
+<p>This raises an interesting problem. Our <em>goal pose</em> is directly to the left of our <em>current pose</em>, and tanks cannot strafe (travel in the $y$ axis without turning). Luckily, to solve this problem we just need to know our error from the goal pose as a distance ($\Delta d$), and a heading ($\Delta\theta$):</p>
+<p>$$
+\Delta d = \sqrt{\Delta x^2 + \Delta y^2}
+$$</p>
+<p>$$
+\Delta\theta = \arctan(\Delta y, \Delta x) \cdot \frac{180}{\pi}
+$$</p>
+<p>Notice how a polar coordinate containing these values: $\big[\begin{smallmatrix}\Delta d  \  \Delta\theta\end{smallmatrix}\big]$ is very similar to our joystick input vector from the <a href="/blog/2020/08/03/joystick-to-voltage">previous post</a>: $\big[\begin{smallmatrix}T \ S\end{smallmatrix}\big]$. Converting our positional error into a polar coordinate makes the process of navigating to any point very simple. All we need to do is take the <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">Hadamard product</a> of the coordinate matrix with a gain matrix to make small adjustments to the output based on the physical characteristics of your robot, like the amount of voltage required to overcome static friction. This is a very simple P-gain controller.</p>
+<p>$$
+input = \begin{bmatrix}\Delta d  \  \Delta\theta\end{bmatrix}\circ\begin{bmatrix}K_t  \  K_s \end{bmatrix}
+$$</p>
+<p>This new input vector can now be fed directly into the code from the previous post, and as long as the $K_t$ and $K_s$ gains are tuned correctly, your robot will smoothly and efficiently navigate from pose $A$ to pose $B$ automatically.</p>
+<p>There are a few tweaks that can be made to this method that will further smooth out the robot's movement. Firstly, we can multiply $\Delta d$ by a restricted version of $\Delta\theta$. This will cause the robot to slow down any time it is too far off course. While it is slower, turns can be made faster, and more efficiently. This cuts down on the amount of time needed to face the goal pose in the first place. We can calculate this gain, $m$, as:</p>
+<p>$$
+m = \big(-1 * \frac{\min(abs(\Delta\theta), 90)}{90}\big) + 1
+$$</p>
+<p>$m$ is now a scalar that falls in $-1 \leq m \leq 1$. Our calculation to determine a new &quot;input&quot; vector is now as follows:</p>
+<p>$$
+input = \begin{bmatrix}\Delta d  \  \Delta\theta\end{bmatrix}\circ\begin{bmatrix}K_t  \  K_s \end{bmatrix} \circ \begin{bmatrix}m  \  1 \end{bmatrix}
+$$</p>
+<p>For even more controllability, Raider Robotics passes $\Delta d$ through a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/PID_controller#Selective_use_of_control_terms">PD</a> controller, and $\Delta\theta$ through a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/PID_controller#PI_controller">PI</a> controller before converting them to motor values... and that is it! With just a couple formulæ, we have a fully functional autonomous point-to-point locomotion system. </p>
+<p>For a real-world example of this method in use, check out 5024's robot (bottom right) and 1114's robot (bottom left). Both teams were running nearly the same implementation. We were both running autonomously for the first 15 seconds of the game:</p>
+<div class="yt-embed">
+    <iframe src="https://www.youtube-nocookie.com/embed/5Q39LIVcXSQ" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+<hr />
+<p>I hope someone will some day find this post helpful. Most papers about this topic went way over my head in 10th grade, or were over-complicated for the task. If you would like me to go further in depth on this topic, <a href="/about/">contact me</a> and let me know. I will gladly help explain things, or write a new post further expanding on a topic.</p>
+
+    </div>
+
+    
+    
+    <br>
+    <hr>
+    <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"
+        theme="github-light" crossorigin="anonymous" async>
+        </script>
+    
+
+</article>
+
+
+
+
+        </div>
+
+        <div id="footer">
+            <p class="gray">-- EOF --</p>
+            <p>
+                <em>
+                    <a href="https://github.com/ewpratten/va3zza.com"><i class="lab la-github"></i></a>
+                    <a href="https://status.ewpratten.com"><i class="las la-info-circle"></i></a>
+                    <a href="/rss.xml"><i class="las la-rss"></i></a><br>
+
+                    Thanks for reading :)<br>
+                    Site design & content by: <a href="/info">Evan Pratten</a><br>
+                    Consider <a href="/donate" target="_blank">supporting my work</a> if you like what you see<br>
+
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5912H4H03P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5912H4H03P');
+    </script>
+
+    <script>
+        if (window.performance && performance.getEntriesByType) { // avoid error in Safari 10, IE9- and other old browsers
+            let navTiming = performance.getEntriesByType('navigation')
+            if (navTiming.length > 0) { // still not supported as of Safari 14...
+                let serverTiming = navTiming[0].serverTiming
+                if (serverTiming && serverTiming.length > 0) {
+                    for (let i = 0; i < serverTiming.length; i++) {
+                        if (serverTiming[i].name == 'source') {
+                            if (serverTiming[i].description == 'net44') {
+                                document.getElementById('ampr-notice').style.display = 'block';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <script>
+        if (window.location.hostname == 'retrylife.ca') {
+            window.location.href = window.location.href.replace('retrylife.ca', 'ewpratten.com');
+        }
+    </script>
+
+    
+    <a rel="me" href="https://social.ewpratten.com/@evan" style="display:none;"></a>
+</body>
+
+</html>

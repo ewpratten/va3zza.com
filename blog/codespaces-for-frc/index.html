@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KFJ95RP');</script>
+    <!-- End Google Tag Manager -->
+
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    
+    <link rel="canonical" href="https:&#x2F;&#x2F;ewpratten.com&#x2F;blog&#x2F;codespaces-for-frc&#x2F;" />
+    
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://ewpratten.com/ rss.xml">
+    <link rel="webmention" href="https://webmention.io/ewpratten.com/webmention" />
+    <link rel="pingback" href="https://webmention.io/ewpratten.com/xmlrpc" />
+
+    <title>
+Integrating GitHub Codespaces with FRC
+ | Evan Pratten</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Urbanist:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://maxst.icons8.com">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/project_mosaic.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+        integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:site" content="ewpratten.com" />
+    <meta name="og:image" content="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" />
+    <meta name="twitter:creator" content="@ewpratten">
+    <meta name="og:site_name" content="Evan Pratten (VA3ZZA)" />
+
+    
+
+
+
+
+
+
+<meta property="og:title" content="Integrating GitHub Codespaces with FRC - Evan Pratten" />
+<meta property="og:type" content="article" />
+
+<meta property="og:description" content="Robotics software development in your browser" />
+<meta property="description" content="Robotics software development in your browser" />
+
+<meta property="article:published_time" content="2020-09-10T00:00:00" />
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+    
+    
+    
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "url": "https://ewpratten.com/blog/codespaces-for-frc/",
+    "headline": "Integrating GitHub Codespaces with FRC",
+    "dateCreated": "2020-09-10T00:00:00",
+    "datePublished": "2020-09-10T00:00:00",
+    "dateModified": "2020-09-10T00:00:00",
+    "inLanguage": "en-CA",
+    "isFamilyFriendly": "true",
+    "accountablePerson": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "creator": {
+        "@type": "Person",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Evan Pratten",
+        "url": "https://ewpratten.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://avatars.githubusercontent.com/u/21065412",
+            "width": "460",
+            "height": "460"
+        }
+    },
+    "mainEntityOfPage": "True",
+    "keywords": [],
+    "genre": [],
+    "articleSection": "Blog Post",
+    "__articleBody__": "{{content}}"
+}
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-card">
+            
+<div class="row">
+    <div class="headshot-container">
+        <img src="https:&#x2F;&#x2F;avatars.githubusercontent.com&#x2F;u&#x2F;21065412" alt="Headshot" style="height:50px;width:auto;">
+    </div>
+    <div class="text-container">
+        <h1>Evan Pratten</h1>
+        <p>
+            Software Developer
+        </p>
+    </div>
+</div>
+
+        </div>
+        <div class="navigation-bar">
+            <hr>
+            <p>
+                <a href="/">Home</a> |
+                <a href="/blog">Blog</a> |
+                
+                
+                
+                <a href="/contact">Contact</a>
+                
+                
+                
+            </p>
+            <hr>
+        </div>
+        <div class="page-content">
+            
+<br><br>
+<article class="markdown-body">
+    
+    <h1 style="border:none;margin-bottom:0;padding-bottom:0">Integrating GitHub Codespaces with FRC</h1>
+    <h3 style="margin-top:0;color:gray;padding-bottom:.3em;border-bottom:1px solid #eaecef;">
+        <em>
+            <span style="color:rgb(186, 186, 186)">/*</span>
+            Robotics software development in your browser
+            <span style="color:rgb(186, 186, 186)">*/</span>
+        </em>
+    </h3>
+    
+    <div style="text-align: justify;">
+        <p>I was recently accepted into the <a rel="noopener" target="_blank" href="https://github.com/features/codespaces">GitHub Codespaces</a> beta test program. After reading through the documentation, I wanted to find a good use for this new tool, and decided to try it out on the largest open source project I am currently involved with. At <em>Raider Robotics</em> (@frc5024), we maintain a fairly large robotics software library called <a rel="noopener" target="_blank" href="https://github.com/frc5024/lib5k">Lib5K</a>. The goal of this library is to provide an easy-to-use framework for new programmers to use when writing control systems code. As this library has become more complex, we have recently forked it into its own GitHub repository, and completely reworked our dependency system to match that of any other large OSS project. I figured that setting this repository up to use Codespaces might make it easier for other developers at Raider Robotics to make small changes to the library without needing to pull in the nearly 5GB of dependencies needed just to compile the codebase.</p>
+<p>I am quite impressed at how easy it is to set up a Codespace environment. All you need to do is, load a pre-made docker image, and write some JSON to configure the environment. I decided to write a custom Dockerfile that extends the <a rel="noopener" target="_blank" href="https://hub.docker.com/_/microsoft-vscode-devcontainers"><code>mcr.microsoft.com/vscode/devcontainers/base:ubuntu</code></a> base image. </p>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#b48ead;">FROM</span><span> mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+</span><span>
+</span><span style="color:#b48ead;">RUN </span><span>apt update -y
+</span><span style="color:#b48ead;">RUN </span><span>apt install sudo -y
+</span><span>
+</span><span style="color:#65737e;"># Install needed packages
+</span><span style="color:#b48ead;">RUN </span><span>sudo apt install -y python3 python3-pip
+</span><span style="color:#b48ead;">RUN </span><span>sudo apt install -y curl wget
+</span><span style="color:#b48ead;">RUN </span><span>sudo apt install -y zip unzip
+</span><span>
+</span><span style="color:#65737e;"># Install sdkman
+</span><span style="color:#b48ead;">RUN </span><span>curl -s &quot;</span><span style="color:#a3be8c;">https://get.sdkman.io?rcupdate=true</span><span>&quot; | bash
+</span><span>
+</span><span style="color:#65737e;"># Install java
+</span><span style="color:#b48ead;">RUN </span><span>bash -c &quot;</span><span style="color:#a3be8c;">source /root/.sdkman/bin/sdkman-init.sh &amp;&amp; sdk install java 11.0.8-open</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Install gradle
+</span><span style="color:#b48ead;">RUN </span><span>bash -c &quot;</span><span style="color:#a3be8c;">source /root/.sdkman/bin/sdkman-init.sh &amp;&amp; sdk install gradle</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">RUN </span><span>echo &quot;</span><span style="color:#a3be8c;">source /root/.sdkman/bin/sdkman-init.sh</span><span>&quot; &gt;&gt; /root/.bashrc
+</span><span>
+</span><span style="color:#65737e;"># Install WPILib
+</span><span style="color:#b48ead;">RUN </span><span>wget https://github.com/wpilibsuite/allwpilib/releases/download/v2020.3.2/WPILib_Linux-2020.3.2.tar.gz -O wpilib.tar.gz
+</span><span style="color:#b48ead;">RUN </span><span>mkdir -p /root/wpilib/2020
+</span><span style="color:#b48ead;">RUN </span><span>tar -zxvf wpilib.tar.gz -C /root/wpilib/2020
+</span></code></pre>
+<p>All that is being done in this container is:</p>
+<ul>
+<li>Installing Python</li>
+<li>Installing <a rel="noopener" target="_blank" href="https://sdkman.io">sdkman</a></li>
+<li>Installing OpenJDK 11</li>
+<li>Installing Gradle</li>
+<li>Installing <a rel="noopener" target="_blank" href="https://github.com/wpilibsuite/allwpilib/">WPILib</a></li>
+</ul>
+<p>In the world of FRC development, almost all codebases depend on a library and toolset called WPILib. The tar file that is downloaded contains a copy of the library, all JNI libraries depended on by WPILib itself, some extra tooling, and a custom JVM built specifically to run on the <a rel="noopener" target="_blank" href="https://www.ni.com/en-ca/support/model.roborio.html">NI RoboRIO</a>.</p>
+<p>With this docker container, all we need to do is tell GitHub how to set up a Codespace for the repo. This is done by placing a file in <code>.devcontainer/devcontainer.json</code>:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// .devcontainer/devcontainer.json
+</span><span>{
+</span><span>    </span><span style="color:#65737e;">// Name of the environment
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">General FRC Development</span><span>&quot;,
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// Set the Docker image to use
+</span><span>    </span><span style="color:#65737e;">// I will explain this below
+</span><span>    &quot;</span><span style="color:#a3be8c;">image</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">ewpratten/frc_devcontainer:2020.3.2</span><span>&quot;,
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// Set any default VSCode settings here
+</span><span>    &quot;</span><span style="color:#a3be8c;">settings</span><span>&quot;: {
+</span><span>        &quot;</span><span style="color:#a3be8c;">terminal.integrated.shell.linux</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">/bin/bash</span><span>&quot;
+</span><span>    },
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// Tell VSCode where to find the workspace directory
+</span><span>    &quot;</span><span style="color:#a3be8c;">workspaceMount</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">source=${localWorkspaceFolder},target=/root/workspace,type=bind,consistency=cached</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">workspaceFolder</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">/root/workspace</span><span>&quot;,
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// Allow the host and container docker daemons to communicate
+</span><span>    &quot;</span><span style="color:#a3be8c;">mounts</span><span>&quot;: [ &quot;</span><span style="color:#a3be8c;">source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind</span><span>&quot; ],
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// Any extensions you want can go here
+</span><span>    &quot;</span><span style="color:#a3be8c;">extensions</span><span>&quot;: [
+</span><span>        </span><span style="color:#65737e;">// Needed extensions for using WPILib
+</span><span>        &quot;</span><span style="color:#a3be8c;">redhat.java</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">ms-vscode.cpptools</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">vscjava.vscode-java-pack</span><span>&quot;,
+</span><span>
+</span><span>        </span><span style="color:#65737e;">// The WPILib extension itself
+</span><span>        &quot;</span><span style="color:#a3be8c;">wpilibsuite.vscode-wpilib</span><span>&quot;
+</span><span>    ]
+</span><span>}
+</span></code></pre>
+<p>Notice the line <code>&quot;image&quot;:&quot;ewpratten/frc_devcontainer:2020.3.2&quot;,</code>. This is telling VSCode and Codespaces to pull a docker image from my docker hub account. Instead of making Codespaces build a docker image for itself when it loads, I have pre-built the image, and published it <a rel="noopener" target="_blank" href="https://hub.docker.com/r/ewpratten/frc_devcontainer">here</a>. The reason for this is quite simple. Codespaces will flat out crash if it tries to build my dockerfile due to WPILib just being too big.</p>
+<p>With a minimal amount of work, I got everything needed to develop and test FRC robotics code running in the browser via Codespaces.</p>
+<p><img src="/images/posts/frc-codespaces/codespaces-menu.png" alt="" /></p>
+<p><em>Launching Codespaces from a GitHub repository</em></p>
+<p><img src="/images/posts/frc-codespaces/codespaces-code.png" alt="" /></p>
+<p><em>Editing code in the browser</em></p>
+<!-- - Pushing a container this large to dockerhub requires the daemon to be restarted with -->
+<!-- sudo systemctl stop docker
+sudo dockerd -s overlay --max-concurrent-uploads=1  -->
+
+    </div>
+
+    
+    
+    <br>
+    <hr>
+    <script src="https://utteranc.es/client.js" repo="ewpratten/va3zza.com" issue-term="title" label="comment"
+        theme="github-light" crossorigin="anonymous" async>
+        </script>
+    
+
+</article>
+
+
+
+
+        </div>
+
+        <div id="footer">
+            <p class="gray">-- EOF --</p>
+            <p>
+                <em>
+                    <a href="https://github.com/ewpratten/va3zza.com"><i class="lab la-github"></i></a>
+                    <a href="https://status.ewpratten.com"><i class="las la-info-circle"></i></a>
+                    <a href="/rss.xml"><i class="las la-rss"></i></a><br>
+
+                    Thanks for reading :)<br>
+                    Site design & content by: <a href="/info">Evan Pratten</a><br>
+                    Consider <a href="/donate" target="_blank">supporting my work</a> if you like what you see<br>
+
+                </em>
+            </p>
+        </div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5912H4H03P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5912H4H03P');
+    </script>
+
+    <script>
+        if (window.performance && performance.getEntriesByType) { // avoid error in Safari 10, IE9- and other old browsers
+            let navTiming = performance.getEntriesByType('navigation')
+            if (navTiming.length > 0) { // still not supported as of Safari 14...
+                let serverTiming = navTiming[0].serverTiming
+                if (serverTiming && serverTiming.length > 0) {
+                    for (let i = 0; i < serverTiming.length; i++) {
+                        if (serverTiming[i].name == 'source') {
+                            if (serverTiming[i].description == 'net44') {
+                                document.getElementById('ampr-notice').style.display = 'block';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <script>
+        if (window.location.hostname == 'retrylife.ca') {
+            window.location.href = window.location.href.replace('retrylife.ca', 'ewpratten.com');
+        }
+    </script>
+
+    
+    <a rel="me" href="https://social.ewpratten.com/@evan" style="display:none;"></a>
+</body>
+
+</html>
